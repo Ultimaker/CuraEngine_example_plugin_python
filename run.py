@@ -11,8 +11,8 @@ except ModuleNotFoundError:
 
 class PluginServicer(plugin_pb2_grpc.PluginServicer):
     def Identify(self, request, context):
-        print("Identify was called", request, context)
-
+        response = plugin_pb2.PluginResponse(plugin_hash = "ExamplePythonPlugin", version = "0.0.1")
+        return response
 
 
 def serve() -> None:
