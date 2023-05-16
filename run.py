@@ -10,14 +10,14 @@ except ModuleNotFoundError:
 
 
 class PluginServicer(plugin_pb2_grpc.PluginServicer):
-    def Identify(self, request, context):
+    def Identify(self, request: plugin_pb2.PluginRequest, context) -> plugin_pb2.PluginResponse:
         print(f"Identify was called with [{request}]")
         response = plugin_pb2.PluginResponse(plugin_hash = "ExamplePythonPlugin", version = "0.0.1")
         return response
 
 
 class SimplifyServicer(plugin_pb2_grpc.SimplifyServicer):
-    def Simplify(self, request, context):
+    def Simplify(self, request: plugin_pb2.SimplifyRequest, context) -> plugin_pb2.SimplifyResponse:
         print(f"Simplify was called with [{request}]")
         # Since this is just an example, we just return the polygon we received without modifying it
         return plugin_pb2.SimplifyResponse(polygons = request.polygons)
