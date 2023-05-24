@@ -1,2 +1,4 @@
 grpcio-tools
 mypy-protobuf
+
+git+https://github.com/Ultimaker/CuraEngine_grpc_defintions@main#egg=CuraEngineGRPC
